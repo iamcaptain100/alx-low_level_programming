@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-*_isuppern- check if a letter is supper
-*@x: The number to be checked
-*Return: 1 for upper letter or 0 for any else
+* _isupper - check if a letter is supper
+* @x: The number to be checked
+* Return: 1 for upper letter or 0 for any else
 */
 
 int _isupper(int x)
