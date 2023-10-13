@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * main - entry point 
+ * main - entry point
  *
  * Description: prints the number 1 - 100 w/
  * fizz for multples of 3, Buzz for multples of 5,
@@ -18,7 +18,7 @@ int main(void)
 		if (i % 15 == 0)
 			printf("FizzBuzz");
 		else if (i % 3 == 0)
-			printf("fFizz");
+			printf("Fizz");
 		else if (i % 5 == 0)
 			printf("Buzz");
 		else
@@ -29,4 +29,4 @@ int main(void)
 	printf("\n");
 	return (0);
 }
-			
+
