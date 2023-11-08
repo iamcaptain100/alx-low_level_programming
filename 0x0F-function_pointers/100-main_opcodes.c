@@ -1,50 +1,44 @@
+#include <stdlib.h>
 #include <stdio.h>
-	#include <stdlib.h>
 
+/**
+ * main - a program that prints the opcodes of its own main function.
+ * @argc: Number of args given
+ * @argv: Argument of number of bytes to print
+ *
+ * Return: 0 on success, If the number of argument is not the correct one,
+ * printError, followed by a new line, and exit with the status 1.
+ * If the number of bytes is negative, print Error, followed by a new line,
+ * and exit with the status 2
+ */
 
-	/**
-	 * main - prints its own opcodes
-	 * @argc: number of arguments
-	 * @argv: array of arguments
-	 *
-	 * Return: Always 0 (Success)
-	 */
-	int main(int argc, char *argv[])
+int main(int argc, char *argv[])
+{
+	char *add;
+	int count, bytes;
+
+	if (argc != 2)
 	{
-		int bytes, i;
-		char *arr;
-
-
-		if (argc != 2)
-		{
-			printf("Error\n");
-			exit(1);
-		}
-
-
-		bytes = atoi(argv[1]);
-
-
-		if (bytes < 0)
-		{
-			printf("Error\n");
-			exit(2);
-		}
-
-
-		arr = (char *)main;
-
-
-		for (i = 0; i < bytes; i++)
-		{
-			if (i == bytes - 1)
-			{
-				printf("%02hhx\n", arr[i]);
-				break;
-			}
-			printf("%02hhx ", arr[i]);
-		}
-		return (0);
+		printf("Error\n");
+		exit(1);
 	}
 
+	if (atoi(argv[1]) < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
 
+	add = (char *)&main;
+	bytes = atoi(argv[1]);
+	count = 0;
+
+	while (count < bytes - 1)
+	{
+		printf("%02hhx ", add[count]);
+		count++;
+	}
+
+	printf("%02hhx\n", add[count]);
+	return (0);
+}
